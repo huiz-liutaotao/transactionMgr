@@ -1,0 +1,29 @@
+spring:  
+  cache:  
+    type: caffeine  
+    caffeine:  
+      spec: maximumSize=500,expireAfterWrite=30s
+
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mysql?useUnicode=true&characterEncoding=utf-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+    username: root
+    password: mysql
+
+mybatis-plus: #mybatis
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/**/dao/*dao.xml
+
+
+
+server:  
+  tomcat:  
+    threads:  
+      max: 200  
+    max-connections: 8192  
+    accept-count: 100  
+    
+logging:  
+  level:  
+    com.incident: DEBUG 
